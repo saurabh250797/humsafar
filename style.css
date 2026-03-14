@@ -1,0 +1,132 @@
+:root {
+    --rose-gold: #e5989b;
+    --deep-rose: #b56576;
+    --white-glass: rgba(255, 255, 255, 0.85);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #ffb4a2, #6d597a);
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden; /* Prevents scrollbars from moving buttons */
+    touch-action: manipulation;
+}
+
+.background-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--rose-gold);
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.glass-card {
+    background: var(--white-glass);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 40px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+    z-index: 10;
+    transition: opacity 0.5s ease;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-rose);
+    font-size: 2.8rem;
+    margin: 0;
+}
+
+.question {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #444;
+    padding: 0 10px;
+}
+
+.question span { color: var(--deep-rose); font-weight: 500; }
+
+.action-area {
+    margin-top: 25px;
+    height: 140px; /* Space for moving button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-main {
+    background: linear-gradient(45deg, var(--deep-rose), var(--rose-gold));
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(181, 101, 118, 0.3);
+    width: 220px;
+    z-index: 11;
+}
+
+.btn-sub {
+    background: white;
+    border: 1px solid var(--deep-rose);
+    color: var(--deep-rose);
+    padding: 10px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 180px;
+}
+
+.hidden { display: none; }
+
+.romantic-gif {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.final-headline {
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-rose);
+    font-size: 2rem;
+    margin: 0;
+}
+
+.final-sub { font-size: 0.95rem; color: #555; margin-top: 10px; }
+
+/* Hearts Logic */
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    animation: floatUp 4s ease-in forwards;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(110vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 400px) {
+    .title { font-size: 2.2rem; }
+    .glass-card { padding: 30px 15px; }
+    .btn-main { width: 180px; }
+}
